@@ -1,0 +1,6 @@
+---
+- name: Atualizando repositórios
+  apt:
+    name: "{{ gitlab_dependencies }}"
+    state: present
+    update_cache: yes

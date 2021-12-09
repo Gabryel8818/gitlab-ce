@@ -1,0 +1,27 @@
+- name: "apt install -f"
+  command: apt install -f -y
+
+- name: "Add GPG Key"
+  apt_key:
+     url: "https://download.docker.com/linux/ubuntu/gpg"
+     state: present
+
+- name: "Add repo"
+  apt_repository:
+     repo: deb https://download.docker.com/linux/debian buster stable
+     state: present
+     update_cache: yes
+ 
+- name: "Install docker and docker-compose"
+  apt:
+     name: "{{ item  }}"
+     state: present
+     update_cache: yes
+  with_items:
+   - "{{ packages }}"
+- name: "add gitlab-runner in docker group"
+  user:
+     name: gitlab-runner
+     groups: docker
+     append: yes
+  notify: restart docker

@@ -1,0 +1,5 @@
+- name: restart gitlab
+  command: gitlab-ctl reconfigure && gitlab-ctl restart nginx
+  register: gitlab_restart
+
+

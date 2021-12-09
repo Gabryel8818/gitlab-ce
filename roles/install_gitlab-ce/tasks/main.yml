@@ -1,0 +1,6 @@
+---
+
+- name: "Import"
+  import_tasks: install_dependencies.yml
+- name: "Import"
+  import_tasks: install_gitlab-ce.yml

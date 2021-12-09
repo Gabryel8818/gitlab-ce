@@ -1,0 +1,5 @@
+- name: restart gitlab
+  command: service docker restart
+  register: restart docker
+
+

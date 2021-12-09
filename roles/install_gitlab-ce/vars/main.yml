@@ -1,0 +1,20 @@
+gitlab_dependencies:
+  - curl
+  - openssh-server
+  - ca-certificates
+  - perl
+  - postfix
+  - dbus
+
+# Configurações gerais
+gitlab_domain: "gitlab.4linux.com.br"
+gitlab_external_url: "https://{{ gitlab_domain }}/"
+gitlab_time_zone: "America/Sao_Paulo"
+gitlab_backup_keep_time: 604800
+gitlab_git_data_dir: "/var/opt/gitlab/gitlab-data"
+gitlab_backup_path: "/var/opt/gitlab/backups"
+gitlab_email_enabled: "true"
+gitlab_email_from: "gitlab.4linux.com.br"
+gitlab_email_display: "GitLab Notification"
+gitlab_default_wiki: "false"
+gitlab_default_snippets: "false"

@@ -1,0 +1,21 @@
+---
+- name: Copy script
+  copy:
+    src: "{{ item }}"
+    dest: /opt/
+    owner: root
+    group: root
+    mode: 0700
+  with_items:
+    - "script.deb.sh"
+
+- name: Adicionando repositório do gitlab
+  shell: 
+    cmd: "sudo bash script.deb.sh"
+    chdir: /opt
+
+- name: Instalando gitlab
+  apt:
+    name: "gitlab-ce"
+    state: present
+  notify: restart gitlab
